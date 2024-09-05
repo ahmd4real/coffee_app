@@ -10,12 +10,18 @@ class CustomNavBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: GNav(
+        textStyle: const TextStyle(
+          fontFamily: font,
+          color: fontColor,
+          fontSize: 16,
+          fontWeight: FontWeight.bold
+        ),
         padding: const EdgeInsets.all(16),
         gap: 1,
           onTabChange: (index) => onTabChange!(index),
           duration: const Duration(milliseconds: 500),
           color: buttonBrown,
-          activeColor: Colors.grey[400],
+          activeColor: fontColor,
           backgroundColor: backgroundColor,
           tabBackgroundColor: buttonBrown,
           mainAxisAlignment: MainAxisAlignment.center,

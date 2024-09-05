@@ -1,19 +1,25 @@
 import 'package:coffe_app/constants.dart';
 import 'package:coffe_app/models/coffee_model.dart';
+import 'package:coffe_app/models/order_model.dart';
 import 'package:flutter/material.dart';
 
 class CartTile extends StatelessWidget {
   CartTile(
       {super.key,
+      required this.order,
       required this.cupOfCoffee,
       required this.cups,
+       this.onPressedIcon,
       required this.onPressed,
+    
       required this.icon});
 
   final Coffee cupOfCoffee;
   void Function()? onPressed;
   final IconData icon;
   final int cups;
+  void Function()? onPressedIcon;
+  final Order order;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -22,18 +28,20 @@ class CartTile extends StatelessWidget {
       shadowColor: buttonBrown,
       color: prodcutColor,
       child: ListTile(
+        onTap: onPressed,
         contentPadding: const EdgeInsets.all(16),
-        //isThreeLine: true,
         title: Text(
-'$cups ${cupOfCoffee.name}',
+          cupOfCoffee.name,
           style: const TextStyle(
+            fontFamily: font,
             color: fontColor,
             fontSize: 24,
           ),
         ),
-        leading: Image.asset(cupOfCoffee.image),
-        subtitle: Text('${cupOfCoffee.price} \$',
+        leading: Badge(label: Text('$cups'),child: Image.asset(cupOfCoffee.image)),
+        subtitle: Text('${order.price.toStringAsFixed(2)} \$',
             style: const TextStyle(
+              fontFamily: font,
               color: fontColor,
               fontSize: 12,
             )),
@@ -41,8 +49,9 @@ class CartTile extends StatelessWidget {
           icon: Icon(
             icon,
             color: buttonOrange,
+            size: 48,
           ),
-          onPressed: onPressed,
+          onPressed: onPressedIcon,
         ),
       ),
     );

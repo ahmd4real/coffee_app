@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(CoffeeApp());
+  runApp(const CoffeeApp());
   
 }
 
 class CoffeeApp extends StatelessWidget {
+  const CoffeeApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -18,7 +20,7 @@ class CoffeeApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Coffee App',
         theme: ThemeData(
-          //primarySwatch: Colors.blue,
+          
         ),
         home: const HomePage(),
       );

@@ -1,7 +1,7 @@
 import 'package:coffe_app/constants.dart';
 import 'package:coffe_app/models/coffee_model.dart';
 import 'package:coffe_app/models/coffee_shop.dart';
-import 'package:coffe_app/view/screens/customize_order.dart';
+import 'package:coffe_app/view/screens/customize_order_page.dart';
 import 'package:coffe_app/view/widgets/coffe_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,14 +14,17 @@ class ShopPage extends StatelessWidget {
     return Consumer(
         builder: (BuildContext context, CoffeeShop value, Widget? child) {
       return Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 8),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
               'What we have for you',
               style: TextStyle(
-                  color: fontColor, fontSize: 32, fontWeight: FontWeight.bold),
+                  fontFamily: font,
+                  color: fontColor,
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold),
             ),
             const SizedBox(
               height: 16,
@@ -35,12 +38,13 @@ class ShopPage extends StatelessWidget {
                       icon: Icons.arrow_forward_rounded,
                       cupOfCoffee: cupOfCoffee,
                       onPressed: () {
-                        //v//alue.cups = 0;
-                       
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CustomizeOrder(selectedCoffe: index,)));
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CustomizeOrder(
+                                      updateOrder: false,
+                                      selectedCoffe: index,
+                                    )));
                       });
                 },
               ),

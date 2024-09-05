@@ -1,54 +1,45 @@
 import 'package:coffe_app/constants.dart';
 import 'package:coffe_app/models/coffee_model.dart';
+import 'package:coffe_app/models/order_model.dart';
 import 'package:flutter/material.dart';
 
-class CoffeeShop extends ChangeNotifier{
-   List<Coffee>products=[
-    Coffee(price: 4.99, name: 'latte', image: latte,),
-    Coffee(price: 5.99, name: 'capuccino', image: cappuccino),
-    Coffee(price: 3.99, name: 'espresso', image:  espresso), 
-    Coffee(price: 2.99, name: 'americano', image:  americano),
+class CoffeeShop extends ChangeNotifier {
+  List<Coffee> products = [
+    Coffee(
+      price: 4,
+      name: 'Latte',
+      image: latte,
+    ),
+    Coffee(price: 5, name: 'Capuccino', image: cappuccino),
+    Coffee(price: 3, name: 'Espresso', image: espresso),
+    Coffee(price: 2, name: 'Americano', image: americano),
   ];
 
+  List<Order> userCart = [];
 
-   
+  void addItem(Order order) {
+    userCart.add(order);
+    notifyListeners();
+  }
 
-   Map<int?,int>order={};
-   
-  List<Map<int?,int>> userCart=[];
+  void removeItem(Order order) {
+    userCart.remove(order);
+    notifyListeners();
+  }
 
-  
- 
+  void clearCart() {
+    userCart.clear();
+    notifyListeners();
+  }
 
-   //add item to cart
-   void addItem(Map<int?,int>order){
-        userCart.add(order);
-        notifyListeners();
+  int cups = 0;
+  void moreCups() {
+    cups++;
+    notifyListeners();
+  }
 
-   }
-    
-
-    //remove items
-
-    void removeItem(Map<int?,int>order){
-      userCart.remove(order);
-      notifyListeners();
-    }
-
-    int cups=0;
-    void moreCups(){
-
-      cups++;
-      notifyListeners();
-
-    }
-    void lessCups(){
-      //cups??0;
-      cups>0?cups--:cups=0;
-      notifyListeners();
-    }
-
-
-
-
+  void lessCups() {
+    cups > 0 ? cups-- : cups = 0;
+    notifyListeners();
+  }
 }
