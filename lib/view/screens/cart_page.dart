@@ -27,7 +27,7 @@ class CartPage extends StatelessWidget {
     return Consumer(
         builder: (BuildContext context, CoffeeShop value, Widget? child) {
       return Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -40,7 +40,7 @@ class CartPage extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
             const SizedBox(
-              height: 16,
+              height: 4,
             ),
             Expanded(
               child: ListView.builder(
@@ -82,12 +82,11 @@ class CartPage extends StatelessWidget {
                         Timer(const Duration(seconds: 1), () {
                           Navigator.of(context).pop(true);
                         });
-                        return const AlertDialog(
-                          content: Center(
-                              child: Text('Your order confirmed successfully')),
-                          backgroundColor: backgroundColor,
+                        return  AlertDialog(
+                          content: Text(value.userCart.isEmpty ? 'Your cart is empty' :'Your order confirmed successfully',textAlign: TextAlign.center,),
+                          backgroundColor: dialogColor,
                           contentTextStyle:
-                              TextStyle(fontFamily: font, color: fontColor),
+                             const  TextStyle(fontFamily: font, color: fontColor,fontSize: 24),
                         );
                       });
 

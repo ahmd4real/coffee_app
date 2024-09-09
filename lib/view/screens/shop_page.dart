@@ -14,7 +14,7 @@ class ShopPage extends StatelessWidget {
     return Consumer(
         builder: (BuildContext context, CoffeeShop value, Widget? child) {
       return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -27,7 +27,7 @@ class ShopPage extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
             const SizedBox(
-              height: 16,
+              height: 4,
             ),
             Expanded(
               child: ListView.builder(

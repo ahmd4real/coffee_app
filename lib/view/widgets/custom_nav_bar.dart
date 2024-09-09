@@ -7,35 +7,32 @@ class CustomNavBar extends StatelessWidget {
   void Function(int)? onTabChange;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
-      child: GNav(
-        textStyle: const TextStyle(
-          fontFamily: font,
-          color: fontColor,
-          fontSize: 16,
-          fontWeight: FontWeight.bold
-        ),
-        padding: const EdgeInsets.all(16),
-        gap: 1,
-          onTabChange: (index) => onTabChange!(index),
-          duration: const Duration(milliseconds: 500),
-          color: buttonBrown,
-          activeColor: fontColor,
-          backgroundColor: backgroundColor,
-          tabBackgroundColor: buttonBrown,
-          mainAxisAlignment: MainAxisAlignment.center,
-          tabs: const [
-            GButton(
-              icon: Icons.home_outlined,
-              text: 'Home',
-            ),
-            GButton(
-              icon: Icons.shopping_bag_outlined,
-              text: 'Cart',
-            ),
-          ]
+    return GNav(
+      textStyle: const TextStyle(
+        fontFamily: font,
+        color: fontColor,
+        fontSize: 16,
+        fontWeight: FontWeight.bold
+      ),
+      padding: const EdgeInsets.all(12),
+      gap: 1,
+        onTabChange: (index) => onTabChange!(index),
+        duration: const Duration(milliseconds: 500),
+        color: buttonBrown,
+        activeColor: fontColor,
+        backgroundColor: Colors.transparent,
+        tabBackgroundColor: buttonBrown,
+        mainAxisAlignment: MainAxisAlignment.center,
+        tabs: const [
+          GButton(
+            icon: Icons.home_outlined,
+            text: 'Home',
           ),
-    );
+          GButton(
+            icon: Icons.shopping_bag_outlined,
+            text: 'Cart',
+          ),
+        ]
+        );
   }
 }

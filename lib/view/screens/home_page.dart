@@ -29,9 +29,19 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        title: SizedBox(
+          width: 120,
+          height: 100,
+          child: Image.asset(
+            logo,
+          ),
+        ),
+        iconTheme: const IconThemeData(color: fontColor),
         backgroundColor: backgroundColor,
       ),
       backgroundColor: backgroundColor,
+      
       bottomNavigationBar: CustomNavBar(
         onTabChange: (index) => navigateScreens(index),
       ),
