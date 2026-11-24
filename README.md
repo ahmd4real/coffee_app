@@ -105,9 +105,3 @@ flutter run
 flutter build apk --release
 ```
 
-
-## 👤 Author
-
-**Ahmed Alaa**: Flutter Developer
-
-- GitHub: [@ahmd4real](https://github.com/ahmd4real)
