@@ -105,13 +105,6 @@ flutter run
 flutter build apk --release
 ```
 
-## 🔮 Possible Improvements
-
-- Save the cart locally so it survives app restarts
-- Connect to a backend or Firebase for real orders
-- Add coffee sizes and extras (milk type, sugar, toppings)
-- Show the splash screen on app launch
-- Add unit and widget tests
 
 ## 👤 Author
 
